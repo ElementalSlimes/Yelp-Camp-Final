@@ -1,6 +1,8 @@
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV === "production") {
     require('dotenv').config();
+    console.log("HI")
 }
+console.log("HI2")
 
 console.log(process.env.SECRET)
 const express = require('express')
@@ -53,7 +55,7 @@ const store = MongoStore.create({
     }
 });
 
-store.on("error", function(e){
+store.on("error", function (e) {
     console.log("Session store error", e)
 })
 
